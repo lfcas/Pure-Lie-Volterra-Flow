@@ -164,6 +164,8 @@ Notebook `02` extracts the internal geometries, projection weights, and activati
 * **$\mathbb{T}^4$ Torus Matrix**: A $4 \times 4$ projection matrix of the dominant modes displays pure circular trajectories on the diagonal and clean Lissajous curves off-diagonal (parabolic, figure-eight, and toroidal braids).
 * **Neuron Probing**: 1D sweeps ($a=0$, sweeping $b \in [0, 96]$) reveal pure sinusoidal tuning matching theoretical frequencies. 2D interaction grids $(a \times b)$ display clear $-45^\circ$ diagonal bands, reflecting $(a + b) \pmod p$ modular addition.
 
+![Modular addition Fourier subspaces](z97-fourier-subspaces-grid.png)
+
 ### 2. Modular Multiplication: Discrete Logarithm & $\mathbb{Z}_6$ Hexagonal Quotient
 * **Linear vs. Discrete Log Ordering**: Plotting non-zero residues $k \in [1, 96]$ in natural integer order yields an irregular pattern jumping between clusters. Reordering residues by powers of the primitive root $g = 5$ ($x = 5^k \pmod{97}$) collapses the representation into a structured orbit.
 * **Subgroup Homomorphism**: Probing the dominant mode ($\omega = 16$) reveals factoring of the multiplicative group $\mathbb{Z}_{96}^\times$ into the cyclic quotient $\mathbb{Z}_6$ ($96 / 16 = 6$). The 96 non-zero residues organize into a **regular hexagon** on the hypersphere, with 16 elements clustered at each vertex.
@@ -171,6 +173,8 @@ Notebook `02` extracts the internal geometries, projection weights, and activati
 ### 3. Formal Language Dyck-1: Continuous Polar Winding Counter
 * **Phase Trajectories**: Tracking internal state trajectories $x(t)$ across temporal steps $t \in [0, 12]$ in 2D PCA demonstrates that valid balanced sequences remain bounded within an equatorial disk and return strictly to the origin ($\theta \to 0$), while invalid sequences diverge into outer regions.
 * **Winding Calibration**: Unwrapping the continuous geodesic phase angle $\theta(t) = \mathrm{unwrap}(\mathrm{atan2}(\text{PC}_2, \text{PC}_1))$ reveals a monotonic relationship with theoretical stack depth, indicating that the causal Volterra operator functions as a continuous phase-space integrator.
+
+![Dyck-1 geodesic counter dynamics](dyck1-geodesic-counter-dynamics.png)
 
 ### 4. Permutations $S_5$: Frobenius Conjugacy Class Shells
 * **Non-Abelian Invariant Structure**: 2D PCA projections of the 120 permutation representations do not collapse into 1D circles. Instead, they organize into concentric shells corresponding to the 7 conjugacy classes of $S_5$ ($1^5, 2\cdot 1^3, 2^2\cdot 1, 3\cdot 1^2, 3\cdot 2, 4\cdot 1, 5$).
@@ -191,7 +195,7 @@ Notebook `02` extracts the internal geometries, projection weights, and activati
 
 1. **Initial Basin Sensitivity & Multi-Seed Variance in Non-Abelian Groups**: While abelian cyclic groups ($\mathbb{Z}_{97}$) exhibit uniform convergence across seeds ($100.00\% \pm 0.00\%$ at step $\sim 2,166$), non-abelian settings ($S_5$) show significant variation in convergence trajectories depending on the initial random seed (ranging from step 3,000 to step 9,000, and up to $> 15,000$ steps). Investigating the geometry of attraction basins and the landscape of Lie-algebraic generators across initializations is an active research direction.
 2. **Temporal Low-Pass Characteristic**: The Volterra integral operator utilizes orthogonal Chebyshev polynomials combined with exponential relaxation kernels. Consequently, it acts as a smooth low-pass filter over the temporal axis. Tasks requiring point-wise, discontinuous index jumps (such as sequential bitwise parity evaluated token-by-token) require dense vector formulations to avoid high-frequency signal attenuation.
-3. **Metric Parameter Optimization Sensitivity**: Scalar parameters governing Riemannian geometry and thermal bounds ($\tau, \gamma_m, \lambda_m, \text{tangent\_scale}$) must be excluded from standard Euclidean weight decay ($L_2$ regularization). Penalizing metric scale parameters artificially freezes manifold curvature and impedes rotational updates.
+3. **Metric Parameter Optimization Sensitivity**: Scalar parameters governing Riemannian geometry and thermal bounds ($\tau$, $\gamma_m$, $\lambda_m$, `tangent_scale`) must be excluded from standard Euclidean weight decay ($L_2$ regularization). Penalizing metric scale parameters artificially freezes manifold curvature and impedes rotational updates.
 4. **Fixed Quadrature Horizon**: The causal Chebyshev basis is evaluated over a fixed sequence horizon ($T$). Variable-length sequence inference requires runtime resampling of the polynomial quadrature grid.
 
 ---
